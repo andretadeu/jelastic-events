@@ -1,0 +1,494 @@
+{
+    "jpsType": "install",
+    "jpsVersion": "0.7",
+    "application": {
+        "id": "jelastic-events",
+        "name": "Jelastic Events",
+        "version": "1.0.0",
+        "type": "docker",
+        "env" : {
+            "topology": {
+                "nodes": [{
+                    "nodeType": "docker",
+                    "extip": false,
+                    "displayName": "das",
+                    "nodeGroup": "das",
+                    "cloudlets": 32,
+                    "docker": {
+                        "image": "andretadeu/glassfish",
+                        "env": {
+                            "DAS": "true"
+                        },
+                        "registry": {
+                            "url": "registry.hub.docker.com"
+                        }
+                    }
+                }]
+            },
+            "onBeforeChangeTopology": {
+                "forEach(nodes.das)": {
+                    "execCmd": {
+                        "nodeId": "${@i.id}",
+                        "commands": "echo ${@i.id} - Called onBeforeChangeTopology >> /home/events_called.txt"
+                    }
+                }
+            },
+            "onAfterChangeTopology": {
+                "forEach(nodes.das)": {
+                    "execCmd": {
+                        "nodeId": "${@i.id}",
+                        "commands": "echo ${@i.id} - Called onAfterChangeTopology >> /home/events_called.txt"
+                    }
+                }
+            },
+            "onBeforeRestartNode" : {
+                "forEach(nodes.das)": {
+                    "execCmd": {
+                        "nodeId": "${@i.id}",
+                        "commands": "echo ${@i.id} - Called onBeforeRestartNode >> /home/events_called.txt"
+                    }
+                }
+            },
+            "onAfterRestartNode" : {
+                "forEach(nodes.das)": {
+                    "execCmd": {
+                        "nodeId": "${@i.id}",
+                        "commands": "echo ${@i.id} - Called onAfterRestartNode >> /home/events_called.txt"
+                    }
+                }
+            },
+            "onBeforeDelete" : {
+                "forEach(nodes.das)": {
+                    "execCmd": {
+                        "nodeId": "${@i.id}",
+                        "commands": "echo ${@i.id} - Called onBeforeDelete >> /home/events_called.txt"
+                    }
+                }
+            },
+            "onAfterDelete" : {
+                "forEach(nodes.das)": {
+                    "execCmd": {
+                        "nodeId": "${@i.id}",
+                        "commands": "echo ${@i.id} - Called onAfterDelete >> /home/events_called.txt"
+                    }
+                }
+            },
+            "onBeforeAddNode" : {
+                "forEach(nodes.das)": {
+                    "execCmd": {
+                        "nodeId": "${@i.id}",
+                        "commands": "echo ${@i.id} - Called onBeforeAddNode >> /home/events_called.txt"
+                    }
+                }
+            },
+            "onAfterAddNode" : {
+                "forEach(nodes.das)": {
+                    "execCmd": {
+                        "nodeId": "${@i.id}",
+                        "commands": "echo ${@i.id} - Called onAfterAddNode >> /home/events_called.txt"
+                    }
+                }
+            },
+            "onBeforeCloneNodes" : {
+                "forEach(nodes.das)": {
+                    "execCmd": {
+                        "nodeId": "${@i.id}",
+                        "commands": "echo ${@i.id} - Called onBeforeCloneNodes >> /home/events_called.txt"
+                    }
+                }
+            },
+            "onAfterCloneNodes" : {
+                "forEach(nodes.das)": {
+                    "execCmd": {
+                        "nodeId": "${@i.id}",
+                        "commands": "echo ${@i.id} - Called onAfterCloneNodes >> /home/events_called.txt"
+                    }
+                }
+            },
+            "onBeforeLinkNode" : {
+                "forEach(nodes.das)": {
+                    "execCmd": {
+                        "nodeId": "${@i.id}",
+                        "commands": "echo ${@i.id} - Called onBeforeLinkNode >> /home/events_called.txt"
+                    }
+                }
+            },
+            "onAfterLinkNode" : {
+                "forEach(nodes.das)": {
+                    "execCmd": {
+                        "nodeId": "${@i.id}",
+                        "commands": "echo ${@i.id} - Called onAfterLinkNode >> /home/events_called.txt"
+                    }
+                }
+            },
+            "onBeforeAttachExtIp" : {
+                "forEach(nodes.das)": {
+                    "execCmd": {
+                        "nodeId": "${@i.id}",
+                        "commands": "echo ${@i.id} - Called onBeforeAttachExtIp >> /home/events_called.txt"
+                    }
+                }
+            },
+            "onAfterAttachExtIp" : {
+                "forEach(nodes.das)": {
+                    "execCmd": {
+                        "nodeId": "${@i.id}",
+                        "commands": "echo ${@i.id} - Called onAfterAttachExtIp >> /home/events_called.txt"
+                    }
+                }
+            },
+            "onBeforeDetachExtIp" : {
+                "forEach(nodes.das)": {
+                    "execCmd": {
+                        "nodeId": "${@i.id}",
+                        "commands": "echo ${@i.id} - Called onBeforeDetachExtIp >> /home/events_called.txt"
+                    }
+                }
+            },
+            "onAfterDetachExtIp" : {
+                "forEach(nodes.das)": {
+                    "execCmd": {
+                        "nodeId": "${@i.id}",
+                        "commands": "echo ${@i.id} - Called onAfterDetachExtIp >> /home/events_called.txt"
+                    }
+                }
+            },
+            "onBeforeUpdateVcsProject" : {
+                "forEach(nodes.das)": {
+                    "execCmd": {
+                        "nodeId": "${@i.id}",
+                        "commands": "echo ${@i.id} - Called onBeforeUpdateVcsProject >> /home/events_called.txt"
+                    }
+                }
+            },
+            "onAfterUpdateVcsProject" : {
+                "forEach(nodes.das)": {
+                    "execCmd": {
+                        "nodeId": "${@i.id}",
+                        "commands": "echo ${@i.id} - Called onAfterUpdateVcsProject >> /home/events_called.txt"
+                    }
+                }
+            },
+            "onBeforeSetCloudletCount" : {
+                "forEach(nodes.das)": {
+                    "execCmd": {
+                        "nodeId": "${@i.id}",
+                        "commands": "echo ${@i.id} - Called onBeforeSetCloudletCount >> /home/events_called.txt"
+                    }
+                }
+            },
+            "onAfterSetCloudletCount" : {
+                "forEach(nodes.das)": {
+                    "execCmd": {
+                        "nodeId": "${@i.id}",
+                        "commands": "echo ${@i.id} - Called onAfterSetCloudletCount >> /home/events_called.txt"
+                    }
+                }
+            },
+            "onAfterChangeEngine" : {
+                "forEach(nodes.das)": {
+                    "execCmd": {
+                        "nodeId": "${@i.id}",
+                        "commands": "echo ${@i.id} - Called onAfterChangeEngine >> /home/events_called.txt"
+                    }
+                }
+            },
+            "onBeforeChangeEngine" : {
+                "forEach(nodes.das)": {
+                    "execCmd": {
+                        "nodeId": "${@i.id}",
+                        "commands": "echo ${@i.id} - Called onBeforeChangeEngine >> /home/events_called.txt"
+                    }
+                }
+            },
+            "onBeforeStart" : {
+                "forEach(nodes.das)": {
+                    "execCmd": {
+                        "nodeId": "${@i.id}",
+                        "commands": "echo ${@i.id} - Called onBeforeStart >> /home/events_called.txt"
+                    }
+                }
+            },
+            "onAfterStart" : {
+                "forEach(nodes.das)": {
+                    "execCmd": {
+                        "nodeId": "${@i.id}",
+                        "commands": "echo ${@i.id} - Called onAfterStart >> /home/events_called.txt"
+                    }
+                }
+            },
+            "onBeforeStop" : {
+                "forEach(nodes.das)": {
+                    "execCmd": {
+                        "nodeId": "${@i.id}",
+                        "commands": "echo ${@i.id} - Called onBeforeStop >> /home/events_called.txt"
+                    }
+                }
+            },
+            "onAfterStop" : {
+                "forEach(nodes.das)": {
+                    "execCmd": {
+                        "nodeId": "${@i.id}",
+                        "commands": "echo ${@i.id} - Called onAfterStop >> /home/events_called.txt"
+                    }
+                }
+            },
+            "onBeforeClone" : {
+                "forEach(nodes.das)": {
+                    "execCmd": {
+                        "nodeId": "${@i.id}",
+                        "commands": "echo ${@i.id} - Called onBeforeClone >> /home/events_called.txt"
+                    }
+                }
+            },
+            "onAfterClone" : {
+                "forEach(nodes.das)": {
+                    "execCmd": {
+                        "nodeId": "${@i.id}",
+                        "commands": "echo ${@i.id} - Called onAfterClone >> /home/events_called.txt"
+                    }
+                }
+            },
+            "onBeforeDeploy" : {
+                "forEach(nodes.das)": {
+                    "execCmd": {
+                        "nodeId": "${@i.id}",
+                        "commands": "echo ${@i.id} - Called onBeforeDeploy >> /home/events_called.txt"
+                    }
+                }
+            },
+            "onAfterDeploy" : {
+                "forEach(nodes.das)": {
+                    "execCmd": {
+                        "nodeId": "${@i.id}",
+                        "commands": "echo ${@i.id} - Called onAfterDeploy >> /home/events_called.txt"
+                    }
+                }
+            },
+            "onBeforeResetNodePassword" : {
+                "forEach(nodes.das)": {
+                    "execCmd": {
+                        "nodeId": "${@i.id}",
+                        "commands": "echo ${@i.id} - Called onBeforeResetNodePassword >> /home/events_called.txt"
+                    }
+                }
+            },
+            "onAfterResetNodePassword" : {
+                "forEach(nodes.das)": {
+                    "execCmd": {
+                        "nodeId": "${@i.id}",
+                        "commands": "echo ${@i.id} - Called onAfterResetNodePassword >> /home/events_called.txt"
+                    }
+                }
+            },
+            "onBeforeRemoveNode" : {
+                "forEach(nodes.das)": {
+                    "execCmd": {
+                        "nodeId": "${@i.id}",
+                        "commands": "echo ${@i.id} - Called onBeforeRemoveNode >> /home/events_called.txt"
+                    }
+                }
+            },
+            "onAfterRemoveNode" : {
+                "forEach(nodes.das)": {
+                    "execCmd": {
+                        "nodeId": "${@i.id}",
+                        "commands": "echo ${@i.id} - Called onAfterRemoveNode >> /home/events_called.txt"
+                    }
+                }
+            },
+            "onBeforeRestartContainer" : {
+                "forEach(nodes.das)": {
+                    "execCmd": {
+                        "nodeId": "${@i.id}",
+                        "commands": "echo ${@i.id} - Called onBeforeRestartContainer >> /home/events_called.txt"
+                    }
+                }
+            },
+            "onAfterRestartContainer" : {
+                "forEach(nodes.das)": {
+                    "execCmd": {
+                        "nodeId": "${@i.id}",
+                        "commands": "echo ${@i.id} - Called onAfterRestartContainer >> /home/events_called.txt"
+                    }
+                }
+            },
+            "onBeforeMigrate" : {
+                "forEach(nodes.das)": {
+                    "execCmd": {
+                        "nodeId": "${@i.id}",
+                        "commands": "echo ${@i.id} - Called onBeforeMigrate >> /home/events_called.txt"
+                    }
+                }
+            },
+            "onAfterMigrate" : {
+                "forEach(nodes.das)": {
+                    "execCmd": {
+                        "nodeId": "${@i.id}",
+                        "commands": "echo ${@i.id} - Called onAfterMigrate >> /home/events_called.txt"
+                    }
+                }
+            },
+            "onBeforeRedeployContainer" : {
+                "forEach(nodes.das)": {
+                    "execCmd": {
+                        "nodeId": "${@i.id}",
+                        "commands": "echo ${@i.id} - Called onBeforeRedeployContainer >> /home/events_called.txt"
+                    }
+                }
+            },
+            "onAfterRedeployContainer" : {
+                "forEach(nodes.das)": {
+                    "execCmd": {
+                        "nodeId": "${@i.id}",
+                        "commands": "echo ${@i.id} - Called onAfterRedeployContainer >> /home/events_called.txt"
+                    }
+                }
+            },
+            "onBeforeLinkDockerNodes" : {
+                "forEach(nodes.das)": {
+                    "execCmd": {
+                        "nodeId": "${@i.id}",
+                        "commands": "echo ${@i.id} - Called onBeforeLinkDockerNodes >> /home/events_called.txt"
+                    }
+                }
+            },
+            "onAfterLinkDockerNodes" : {
+                "forEach(nodes.das)": {
+                    "execCmd": {
+                        "nodeId": "${@i.id}",
+                        "commands": "echo ${@i.id} - Called onAfterLinkDockerNodes >> /home/events_called.txt"
+                    }
+                }
+            },
+            "onBeforeUnlinkDockerNodes" : {
+                "forEach(nodes.das)": {
+                    "execCmd": {
+                        "nodeId": "${@i.id}",
+                        "commands": "echo ${@i.id} - Called onBeforeUnlinkDockerNodes >> /home/events_called.txt"
+                    }
+                }
+            },
+            "onAfterUnlinkDockerNodes" : {
+                "forEach(nodes.das)": {
+                    "execCmd": {
+                        "nodeId": "${@i.id}",
+                        "commands": "echo ${@i.id} - Called onAfterUnlinkDockerNodes >> /home/events_called.txt"
+                    }
+                }
+            },
+            "onBeforeSetDockerEnvVars" : {
+                "forEach(nodes.das)": {
+                    "execCmd": {
+                        "nodeId": "${@i.id}",
+                        "commands": "echo ${@i.id} - Called onAfterUnlinkDockerNodes >> /home/events_called.txt"
+                    }
+                }
+            },
+            "onAfterSetDockerEnvVars" : {
+                "forEach(nodes.das)": {
+                    "execCmd": {
+                        "nodeId": "${@i.id}",
+                        "commands": "echo ${@i.id} - Called onAfterSetDockerEnvVars >> /home/events_called.txt"
+                    }
+                }
+            },
+            "onBeforeSetDockerEntryPoint" : {
+                "forEach(nodes.das)": {
+                    "execCmd": {
+                        "nodeId": "${@i.id}",
+                        "commands": "echo ${@i.id} - Called onBeforeSetDockerEntryPoint >> /home/events_called.txt"
+                    }
+                }
+            },
+            "onAfterSetDockerEntryPoint" : {
+                "forEach(nodes.das)": {
+                    "execCmd": {
+                        "nodeId": "${@i.id}",
+                        "commands": "echo ${@i.id} - Called onAfterSetDockerEntryPoint >> /home/events_called.txt"
+                    }
+                }
+            },
+            "onBeforeSetDockerRunCmd" : {
+                "forEach(nodes.das)": {
+                    "execCmd": {
+                        "nodeId": "${@i.id}",
+                        "commands": "echo ${@i.id} - Called onBeforeSetDockerRunCmd >> /home/events_called.txt"
+                    }
+                }
+            },
+            "onAfterSetDockerRunCmd" : {
+                "forEach(nodes.das)": {
+                    "execCmd": {
+                        "nodeId": "${@i.id}",
+                        "commands": "echo ${@i.id} - Called onAfterSetDockerRunCmd >> /home/events_called.txt"
+                    }
+                }
+            },
+            "onBeforeAddDockerVolume" : {
+                "forEach(nodes.das)": {
+                    "execCmd": {
+                        "nodeId": "${@i.id}",
+                        "commands": "echo ${@i.id} - Called onBeforeAddDockerVolume >> /home/events_called.txt"
+                    }
+                }
+            },
+            "onAfterAddDockerVolume" : {
+                "forEach(nodes.das)": {
+                    "execCmd": {
+                        "nodeId": "${@i.id}",
+                        "commands": "echo ${@i.id} - Called onAfterAddDockerVolume >> /home/events_called.txt"
+                    }
+                }
+            },
+            "onBeforeRemoveDockerVolume" : {
+                "forEach(nodes.das)": {
+                    "execCmd": {
+                        "nodeId": "${@i.id}",
+                        "commands": "echo ${@i.id} - Called onBeforeRemoveDockerVolume >> /home/events_called.txt"
+                    }
+                }
+            },
+            "onAfterRemoveDockerVolume" : {
+                "forEach(nodes.das)": {
+                    "execCmd": {
+                        "nodeId": "${@i.id}",
+                        "commands": "echo ${@i.id} - Called onAfterRemoveDockerVolume >> /home/events_called.txt"
+                    }
+                }
+            },
+            "onBeforeScaleOut": {
+                "forEach(nodes.das)": {
+                    "execCmd": {
+                        "nodeId": "${@i.id}",
+                        "commands": "echo ${@i.id} - Called onBeforeScaleOut >> /home/events_called.txt"
+                    }
+                }
+            },
+            "onAfterScaleOut": {
+                "forEach(nodes.das)": {
+                    "execCmd": {
+                        "nodeId": "${@i.id}",
+                        "commands": "echo ${@i.id} - Called onAfterScaleOut >> /home/events_called.txt"
+                    }
+                }
+            },
+            "onBeforeScaleIn": {
+                "forEach(nodes.das)": {
+                    "execCmd": {
+                        "nodeId": "${@i.id}",
+                        "commands": "echo ${@i.id} - Called onBeforeScaleIn >> /home/events_called.txt"
+                    }
+                }
+            },
+            "onAfterScaleIn": {
+                "forEach(nodes.das)": {
+                    "execCmd": {
+                        "nodeId": "${@i.id}",
+                        "commands": "echo ${@i.id} - Called onAfterScaleIn >> /home/events_called.txt"
+                    }
+                }
+            }
+        }
+    }
+}
